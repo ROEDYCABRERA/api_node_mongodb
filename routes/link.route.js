@@ -11,7 +11,7 @@ const router = Router();
 // PATCH    api/v1/links                update link
 // DELETE   api/v1/links/:nanoLink      remove link
 
-router.get("/", getLinks);
+router.get("/",requireToken, getLinks);
 router.get("/:nanoLink", getLink);
 router.post("/",requireToken,bodyLinkValidator, createLink);
 router.delete("/:id",requireToken,paramLinkValidator ,removeLink);
